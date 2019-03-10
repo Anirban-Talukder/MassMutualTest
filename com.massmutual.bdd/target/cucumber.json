@@ -1,0 +1,118 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 4,
+        "name": "Verify npv page elements",
+        "description": "",
+        "id": "test-validation;verify-npv-page-elements",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 4718853926,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I launch the browser",
+            "match": {
+              "location": "NpvValidationStepDef.I_launch_the_browser()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 923877926,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I navigate to npv page",
+            "match": {
+              "location": "NpvValidationStepDef.i_navigate_to_npv_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 25679,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I verify right number of values appeared on the screen",
+            "match": {
+              "location": "NpvValidationStepDef.i_verify_right_number_of_values_appeared_on_the_screen()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 20543,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I verify all the values appeared are greater than zero",
+            "match": {
+              "location": "NpvValidationStepDef.i_verify_all_the_values_appeared_are_greater_than_zero()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 26864,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I verify total balance matched the sum of the values",
+            "match": {
+              "location": "NpvValidationStepDef.i_verify_total_balance_matched_the_sum_of_the_values()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 18963,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "I verify all the values are formatted as currencies",
+            "match": {
+              "location": "NpvValidationStepDef.i_verify_all_the_values_are_formatted_as_currencies()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 24098,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "I verify given total balance is correct",
+            "match": {
+              "location": "NpvValidationStepDef.i_verify_given_total_balance_is_correct()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 663693827,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "I complete my test",
+            "match": {
+              "location": "NpvValidationStepDef.i_complete_my_test()"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Test Validation",
+    "description": "",
+    "id": "test-validation",
+    "keyword": "Feature",
+    "uri": "npvTest.feature"
+  }
+]
