@@ -1,5 +1,6 @@
 package pages;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -88,10 +89,17 @@ public class NpvPage extends Base {
 	public boolean checkValues() {
 
 		List<WebElement> val = driver.findElements(By.xpath("//*[starts-with(@id, 'txt_')]"));
+		ArrayList<Double> items = new ArrayList<>();
 		for (WebElement value : val) {
-			String actual = value.getAttribute("value").replace("$", "");
+			String actual = value.getAttribute("innerHTML").replaceAll("[^0-9+\\.]", "");
 			double num = Double.parseDouble(actual);
-			return num > 0.0;
+			if (num > 0) {
+				items.add(num);
+			} else
+				System.out.println("Improper values found");
+		}
+		if (val.size() == items.size()) {
+			return true;
 		}
 		return false;
 	}
@@ -101,7 +109,7 @@ public class NpvPage extends Base {
 		double sum = 0;
 		List<WebElement> val = driver.findElements(By.xpath("//*[starts-with(@id, 'txt_')]"));
 		for (WebElement value : val) {
-			String actual = value.getAttribute("value").replace("$", "");
+			String actual = value.getAttribute("value").replaceAll("[^0-9+\\.]", "");
 			double num = Double.parseDouble(actual);
 			sum = sum + num;
 		}
@@ -111,10 +119,9 @@ public class NpvPage extends Base {
 	public boolean isCurrency() {
 		List<WebElement> val = driver.findElements(By.xpath("//*[starts-with(@id, 'txt_')]"));
 		for (WebElement value : val) {
-			String actual = value.getAttribute("aria-label");
+			String actual = value.getAttribute("value");
 
 			return actual.contains("$");
-
 		}
 		return false;
 	}
@@ -122,15 +129,14 @@ public class NpvPage extends Base {
 	public void isCurrencyFormat() {
 		List<WebElement> val = driver.findElements(By.xpath("//*[starts-with(@id, 'txt_')]"));
 		for (WebElement value : val) {
-			String actual = value.getAttribute("aria-label");
+			String actual = value.getAttribute("value");
 
-			Pattern pattern = Pattern.compile("\\$[0-9]+\\.[0-9]{2}");
+			Pattern pattern = Pattern.compile(
+					"^(?:[$]|)[+-]?[0-9]{1,3}(?:[0-9]*(?:[.,][0-9]{1})?|(?:,[0-9]{3})*(?:\\\\.[0-9]{1,2})?|(?:\\\\.[0-9]{3})*(?:,[0-9]{1,2})?)$");
 			if (pattern.matcher(actual).matches()) {
 				return;
 			} else
 				throw new IllegalArgumentException("Invalid formate");
-
 		}
 	}
-
 }

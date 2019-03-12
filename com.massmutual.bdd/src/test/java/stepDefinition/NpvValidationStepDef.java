@@ -48,7 +48,7 @@ public class NpvValidationStepDef extends Base {
 	public void i_verify_given_total_balance_is_correct() throws Throwable {
 //		npv.verifyTotal();
 	}
-	
+
 	@And("^I complete my test$")
 	public void i_complete_my_test() throws Throwable {
 		tearDown();
